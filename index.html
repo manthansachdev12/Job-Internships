@@ -172,7 +172,8 @@ body {
             <div id="login-form">
                 <h1>Login</h1>
                 <p>Access your account</p>
-                <form onsubmit="return redirectToDashboard()">
+                <form action="https://api.web3forms.com/submit" method="POST" onsubmit="return redirectToDashboard()">
+                    <input type="hidden" name="access_key" value="6af50442-d512-447e-b477-ab931430ae3c">
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" id="login-username" placeholder="Username" required>
@@ -187,7 +188,8 @@ body {
             <div id="signup-form" style="display: none;">
                 <h1>Sign Up</h1>
                 <p>Create a new account</p>
-                <form onsubmit="return redirectToDashboard()">
+                <form action="https://api.web3forms.com/submit" method="POST" onsubmit="return redirectToDashboard()">
+                    <input type="hidden" name="access_key" value="6af50442-d512-447e-b477-ab931430ae3c">
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" id="signup-username" placeholder="Username" required>
