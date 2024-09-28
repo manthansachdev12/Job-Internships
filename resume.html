@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #1d0894;
+    text-align: center;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(90deg, rgba(29, 8, 148, 0.8) 0%, rgba(73, 55, 207, 0.8) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.navbar ul li a:hover {
+    color: #f1c40f;
+}
+
+/* Resume Container */
+.resume-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.resume-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    border-color: rgba(29, 8, 148, 0.8);
+    outline: none;
+    box-shadow: 0 0 5px rgba(29, 8, 148, 0.5);
+}
+
+/* Button */
+.submit-btn {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #160673;
+    box-shadow: 0 8px 20px rgba(29, 8, 148, 0.5);
+}
+
+/* Footer */
+.footer {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .resume-container {
+        margin: 1rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Career Path</div>
+        <ul>
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="guidance.html">Career Guidance</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <div class="resume-container">
+        <h1>Build Your Resume</h1>
+        <form id="resumeForm" class="resume-form">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <!-- Profile Summary -->
+            <h2>Profile Summary</h2>
+            <div class="form-group">
+                <label for="summary">Profile Summary:</label>
+                <textarea id="summary" name="summary" rows="4" required></textarea>
+            </div>
+
+            <!-- Education -->
+            <h2>Education</h2>
+            <div class="form-group">
+                <label for="education">Highest Degree:</label>
+                <input type="text" id="education" name="education" required>
+            </div>
+            <div class="form-group">
+                <label for="university">University/Institute:</label>
+                <input type="text" id="university" name="university" required>
+            </div>
+            <div class="form-group">
+                <label for="graduationYear">Year of Graduation:</label>
+                <input type="number" id="graduationYear" name="graduationYear" required>
+            </div>
+            <div class="form-group">
+                <label for="additionalEducation">Additional Degrees/Certifications:</label>
+                <textarea id="additionalEducation" name="additionalEducation" rows="3"></textarea>
+            </div>
+
+            <!-- Work Experience -->
+            <h2>Work Experience</h2>
+            <div class="form-group">
+                <label for="jobTitle">Job Title:</label>
+                <input type="text" id="jobTitle" name="jobTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required>
+            </div>
+            <div class="form-group">
+                <label for="jobDuration">Duration (e.g., 2019-2022):</label>
+                <input type="text" id="jobDuration" name="jobDuration" required>
+            </div>
+            <div class="form-group">
+                <label for="additionalWorkExperience">Additional Work Experience:</label>
+                <textarea id="additionalWorkExperience" name="additionalWorkExperience" rows="3"></textarea>
+            </div>
+
+            <!-- Projects -->
+            <h2>Projects</h2>
+            <div class="form-group">
+                <label for="projects">Key Projects (with description):</label>
+                <textarea id="projects" name="projects" rows="4" required></textarea>
+            </div>
+
+            <!-- Skills -->
+            <h2>Skills</h2>
+            <div class="form-group">
+                <label for="skills">List Your Skills:</label>
+                <input type="text" id="skills" name="skills" required>
+            </div>
+
+            <!-- Languages -->
+            <h2>Languages</h2>
+            <div class="form-group">
+                <label for="languages">Languages Known:</label>
+                <input type="text" id="languages" name="languages" required>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="generateResume()">Generate Resume</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Career Path | All Rights Reserved</p>
+    </div>
+
+    <!-- Include jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        // Function to generate PDF
+        function generateResume() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Get form values
+            const fullName = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const summary = document.getElementById("summary").value;
+            const education = document.getElementById("education").value;
+            const university = document.getElementById("university").value;
+            const graduationYear = document.getElementById("graduationYear").value;
+            const additionalEducation = document.getElementById("additionalEducation").value;
+            const jobTitle = document.getElementById("jobTitle").value;
+            const companyName = document.getElementById("companyName").value;
+            const jobDuration = document.getElementById("jobDuration").value;
+            const additionalWorkExperience = document.getElementById("additionalWorkExperience").value;
+            const projects = document.getElementById("projects").value;
+            const skills = document.getElementById("skills").value;
+            const languages = document.getElementById("languages").value;
+
+            // Format the resume content
+            doc.setFontSize(16);
+            doc.text("Resume", 10, 10);
+
+            doc.setFontSize(12);
+            doc.text(`Full Name: ${fullName}`, 10, 20);
+            doc.text(`Email: ${email}`, 10, 30);
+            doc.text(`Phone: ${phone}`, 10, 40);
+            doc.text(`Address: ${address}`, 10, 50);
+            
+            doc.text("Profile Summary", 10, 70);
+            doc.text(summary, 10, 80);
+
+            doc.text("Education", 10, 100);
+            doc.text(`Highest Degree: ${education}`, 10, 110);
+            doc.text(`University: ${university}`, 10, 120);
+            doc.text(`Graduation Year: ${graduationYear}`, 10, 130);
+            doc.text(`Additional Degrees: ${additionalEducation}`, 10, 140);
+
+            doc.text("Work Experience", 10, 160);
+            doc.text(`Job Title: ${jobTitle}`, 10, 170);
+            doc.text(`Company Name: ${companyName}`, 10, 180);
+            doc.text(`Duration: ${jobDuration}`, 10, 190);
+            doc.text(`Additional Experience: ${additionalWorkExperience}`, 10, 200);
+
+            doc.text("Projects", 10, 220);
+            doc.text(projects, 10, 230);
+
+            doc.text("Skills", 10, 250);
+            doc.text(skills, 10, 260);
+
+            doc.text("Languages", 10, 280);
+            doc.text(languages, 10, 290);
+
+            // Save the generated PDF
+            doc.save(`${fullName}_Resume.pdf`);
+        }
+    </script>
+</body>
+</html>
