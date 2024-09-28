@@ -3,8 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Student Profile</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(29, 8, 148, 0.1);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background: linear-gradient(90deg, rgba(29, 8, 148, 0.8) 0%, rgba(73, 55, 207, 0.8) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar ul li {
+    position: relative;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #f1c40f;
+}
+
+.navbar ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #f1c40f;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    top: 0;
+    right: 0;
+    background-color: #f1c40f;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+.profile-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile-details h1 {
+    margin: 0;
+    font-size: 24px;
+    color: rgba(29, 8, 148, 0.8);
+}
+
+.profile-details p {
+    margin-top: 10px;
+}
+
+.edit-btn {
+    padding: 10px 15px;
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.profile-content section {
+    margin-bottom: 20px;
+}
+
+.profile-content section h2 {
+    font-size: 20px;
+    color: rgba(29, 8, 148, 0.8);
+    border-bottom: 2px solid rgba(29, 8, 148, 0.8);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.profile-content .experience-item,
+.profile-content .education-item,
+.profile-content .project-item {
+    margin-bottom: 15px;
+}
+
+.skills-section ul,
+.certifications-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-section ul li,
+.certifications-section ul li {
+    background-color: rgba(29, 8, 148, 0.1);
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="navbar">
@@ -13,51 +190,102 @@
             <li><a href="dashboard.html">Home</a></li>
             <li><a href="job.html">Jobs</a></li>
             <li><a href="internships.html">Internships</a></li>
-            <li><a href="mentorship.html">Mentorship</a></li>
-            <li><a href="counseling.html">Counseling</a></li>
+            <li><a href="guidance.html">Career Guidance</a></li>
             <li><a href="chat.html">Chat</a></li>
+            <li><a href="resume.html">Resume Builder</a></li>
             <li><a href="profile.html">Profile</a></li>
         </ul>
     </div>
 
     <div class="profile-container">
         <div class="profile-header">
-            <div class="profile-picture">
-                <img src="madhav.jpg" alt="Profile Picture">
+            <div class="profile-image">
+                <img src="madhav.png" alt="Profile Picture">
             </div>
-            <div class="profile-info">
-                <h1>Madhav Kumawat</h1>
-                <p>Software Developer | Tech Enthusiast | Lifelong Learner</p>
-                <div class="profile-stats" style="align-items: center;">
-                    <span><strong>02</strong> Posts</span>
-                    <span><strong>1.2k</strong> Followers</span>
-                    <span><strong>300</strong> Following</span>
-                </div>
-                <button class="edit-button">Edit Profile</button>
+            <div class="profile-details">
+                <h1 id="profile-name">Madhav Kumawat</h1>
+                <p id="profile-title">Computer Science Student at Prestige Institute of Engineering Management & Research, Indore.</p>
+                <p id="profile-location">Indore, M.P.</p>
+                <a href="#" class="edit-btn">Edit Profile</a>
             </div>
         </div>
 
         <div class="profile-content">
-            <h2 style="text-align: center;">Posts</h2>
-            <div class="posts">
-                <!-- Example Post 1 -->
-                <div class="post">
-                    <img src="madhav.jpg" alt="Post 1">
-                    <p>Exploring new technology trends. #Innovation #Tech</p>
+            <!-- About Section -->
+            <section class="about-section">
+                <h2>About</h2>
+                <p>
+                    Passionate Computer Science student with experience in software development, web technologies, and AI. Always eager to learn and work on innovative projects that challenge and grow my technical skills.
+                </p>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="experience-section">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Software Engineering Intern</h3>
+                    <p>Infosys Private Ltd.</p>
+                    <p>June 2024 - August 2024</p>
+                    <p>Worked on developing a web application using React and Node.js, improved code efficiency by 15%.</p>
                 </div>
-                <!-- Example Post 2 -->
-                <div class="post">
-                    <img src="p1.jpg" alt="Post 2">
-                    <p>Attending a tech conference. #TechEvents #Learning</p>
+                <div class="experience-item">
+                    <h3>Teaching Assistant</h3>
+                    <p>Medicaps University</p>
+                    <p>January 2024 - May 2024</p>
+                    <p>Assisted in teaching Python programming courses to undergraduate students, providing help with coding assignments and projects.</p>
                 </div>
-            </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="education-section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Prestige Institute of Engineering Management & Research</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p>2023 - 2027 (Expected)</p>
+                    <p>Relevant coursework: Data Structures, Algorithms, Machine Learning, Web Development.</p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills-section">
+                <h2>Skills</h2>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>Machine Learning</li>
+                </ul>
+            </section>
+
+            <!-- Certifications Section -->
+            <section class="certifications-section">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Coursera: Deep Learning Specialization</li>
+                    <li>Udemy: Web Development Bootcamp</li>
+                </ul>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="projects-section">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Developed a personal website to showcase projects, skills, and experience using HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Chatbot with Natural Language Processing</h3>
+                    <p>Implemented a chatbot using Python and NLP libraries to assist users in performing specific tasks such as answering FAQs and performing data searches.</p>
+                </div>
+            </section>
         </div>
     </div>
 
     <div class="footer">
         <p>&copy; 2024 Career Path | All Rights Reserved</p>
     </div>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
