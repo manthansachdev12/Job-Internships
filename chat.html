@@ -15,6 +15,38 @@
             align-items: center;
             background-color: #f0f4ff; /* Match your theme */
         }
+        /* Navbar Styles */
+        .navbar {
+            background: linear-gradient(90deg, rgba(29, 8, 148, 0.8) 0%, rgba(73, 55, 207, 0.8) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li a:hover {
+            color: #f1c40f;
+        }
 
         .chat-container {
             width: 90%;  /* Adjust width as needed */
@@ -47,6 +79,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;  /* Space between messages */
+            aria-live: "polite"; /* For screen reader accessibility */
         }
 
         /* Message styles */
@@ -98,6 +131,11 @@
         .chat-input button:hover {
             background-color: #160673;
         }
+
+        .chat-input button:disabled {
+            background-color: #ccc; /* Disabled button style */
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -105,12 +143,12 @@
         <div class="chat-header">
             Chatbot
         </div>
-        <div class="chat-body" id="chatBody">
+        <div class="chat-body" id="chatBody" aria-live="polite">
             <div class="message bot-message">Welcome! How can I assist you today?</div>
         </div>
         <div class="chat-input">
             <input type="text" id="userInput" placeholder="Type your message..." />
-            <button id="sendButton">Send</button>
+            <button id="sendButton" disabled>Send</button>
         </div>
     </div>
 
@@ -212,14 +250,15 @@
         };
 
         // Function to handle sending messages
-        sendButton.addEventListener('click', () => {
+        function sendMessage() {
             const userMessage = userInput.value.trim();
             if (userMessage) {
                 addMessage(userMessage, 'user');
                 respondToMessage(userMessage.toLowerCase());
                 userInput.value = '';
+                sendButton.disabled = true; // Disable button after sending
             }
-        });
+        }
 
         // Function to add messages to the chat
         function addMessage(message, sender) {
@@ -235,6 +274,17 @@
             const botResponse = commands[message] || "I'm sorry, I don't understand that.";
             addMessage(botResponse, 'bot');
         }
+
+        // Event listeners
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('input', () => {
+            sendButton.disabled = userInput.value.trim() === ''; // Enable/disable button based on input
+        });
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>
